@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -328,7 +329,7 @@
   </div>
 </div>
 <script>
-// ES5 translations
+// ES5 translations - 3 new cards added at the end of features arrays
 var texts = {
   tr: {
     tagline: "Zihnin Rotası, Güvenin Limanı.",
@@ -340,7 +341,11 @@ var texts = {
       { emoji: "📻", title: "Nostaljik Radyo", desc: "Kişiye özel müzik ve anı tetikleyicileri. Müzik hafızayı en son terk eden şeydir." },
       { emoji: "🌙", title: "Gece Yarısı Kalkanı", desc: "Anormal saatte cihazı eline aldığında sistem fark eder. Sevecen bir ses karşılar: 'Merhaba, uyuyamadın mı? Ben buradayım.'" },
       { emoji: "🤝", title: "Nesiller Arası Köprü", desc: "KiezFlow bağlantısıyla deneyimini paylaş, destek ver, destek al. Kazandıkların için sistem bonus ödüller ve 'İyi İnsan Sertifikası' sunar." },
-      { emoji: "📜", title: "Dijital Vasiyet", desc: "Anıların, sesler, fotoğraflar ve mesajlar güvenle aileye ulaşsın. 'Seni seviyorum' diyemediklerini teknoloji iletsin." }
+      { emoji: "📜", title: "Dijital Vasiyet", desc: "Anıların, sesler, fotoğraflar ve mesajlar güvenle aileye ulaşsın. 'Seni seviyorum' diyemediklerini teknoloji iletsin." },
+      // Yeni eklenen 3 kart
+      { emoji: "🧑‍🤝‍🧑", title: "Bakıcı Köprüsü", desc: "Bakıcılar size özel notlar bırakabilir. 'Anlaşıldı' butonuyla onaylayın. Gözetim değil, destek." },
+      { emoji: "🔒", title: "Offline-First Güvenlik", desc: "Tüm verileriniz cihazınızda kalır. Buluta gönderilmez. İnternet sadece acil arama için gereklidir." },
+      { emoji: "🧠", title: "Alzheimer Erken Uyarı", desc: "Günlük rutinlerinizdeki değişimler yerel yapay zeka ile analiz edilir. Alışılmadık düşüş tespit edildiğinde bakıcıya öneri bildirimi gönderilir. Tüm analiz cihazınızda kalır." }
     ],
     statsTitle: "Biliyor muydun?",
     stats: [
@@ -372,7 +377,11 @@ var texts = {
       { emoji: "📻", title: "Nostalgieradio", desc: "Personalisierte Musik als Gedächtnisanker. Musik verlässt das Gedächtnis als Letztes." },
       { emoji: "🌙", title: "Nachtschild", desc: "Das System erkennt ungewöhnliche Nutzungszeiten. Eine fürsorgliche Stimme begrüßt dich: 'Hallo, kannst du nicht schlafen? Ich bin da.'" },
       { emoji: "🤝", title: "Generationenbrücke", desc: "Teile deine Erfahrung, gib und empfange Unterstützung über KiezFlow. Erhalte Bonuspunkte und ein 'Guter Mensch Zertifikat'." },
-      { emoji: "📜", title: "Digitales Testament", desc: "Erinnerungen, Stimmen und Botschaften sicher an die Familie weitergeben. Was du nicht sagen konntest, übermittelt die Technologie." }
+      { emoji: "📜", title: "Digitales Testament", desc: "Erinnerungen, Stimmen und Botschaften sicher an die Familie weitergeben. Was du nicht sagen konntest, übermittelt die Technologie." },
+      // Neue 3 Karten
+      { emoji: "🧑‍🤝‍🧑", title: "Pflegebrücke", desc: "Pflegepersonen können persönliche Notizen hinterlassen. Bestätigen Sie mit 'Verstanden'. Unterstützung, keine Überwachung." },
+      { emoji: "🔒", title: "Offline-First Sicherheit", desc: "Alle Daten bleiben auf Ihrem Gerät. Keine Cloud. Internet nur für Notrufe erforderlich." },
+      { emoji: "🧠", title: "Alzheimer-Frühwarnung", desc: "Veränderungen in Ihren täglichen Routinen werden lokal analysiert. Bei ungewöhnlichen Rückgängen wird der Betreuer benachrichtigt. Alle Analysen bleiben auf Ihrem Gerät." }
     ],
     statsTitle: "Wussten Sie schon?",
     stats: [
@@ -404,7 +413,11 @@ var texts = {
       { emoji: "📻", title: "Nostalgia Radio", desc: "Personalized music as memory triggers. Music is the last thing to leave memory." },
       { emoji: "🌙", title: "Night Shield", desc: "System detects unusual usage hours. A caring voice greets you: 'Hello, can't sleep? I'm here.'" },
       { emoji: "🤝", title: "Generational Bridge", desc: "Share your experience, give and receive support via KiezFlow. Earn bonus rewards and a 'Good Human Certificate'." },
-      { emoji: "📜", title: "Digital Legacy", desc: "Memories, voices and messages safely delivered to your family. Let technology say what you couldn't." }
+      { emoji: "📜", title: "Digital Legacy", desc: "Memories, voices and messages safely delivered to your family. Let technology say what you couldn't." },
+      // New 3 cards
+      { emoji: "🧑‍🤝‍🧑", title: "Caregiver Bridge", desc: "Caregivers can leave personal notes. Confirm with 'Understood'. Support, not surveillance." },
+      { emoji: "🔒", title: "Offline-First Security", desc: "All your data stays on your device. No cloud. Internet only needed for emergency calls." },
+      { emoji: "🧠", title: "Alzheimer Early Warning", desc: "Changes in your daily routines are analyzed locally by AI. Unusual declines trigger caregiver notifications. All analysis stays on your device." }
     ],
     statsTitle: "Did you know?",
     stats: [
@@ -428,117 +441,117 @@ var texts = {
   }
 };
 
-var currentLang = "tr";
+var currentLang = “tr”;
 
 function detectLanguage() {
-  var userLang = navigator.language || navigator.userLanguage;
-  if (userLang.indexOf("tr") === 0) return "tr";
-  if (userLang.indexOf("de") === 0) return "de";
-  return "en";
+var userLang = navigator.language || navigator.userLanguage;
+if (userLang.indexOf(“tr”) === 0) return “tr”;
+if (userLang.indexOf(“de”) === 0) return “de”;
+return “en”;
 }
 
 function renderContent(lang) {
-  var t = texts[lang];
-  if (!t) return;
-  
-  // Features HTML
-  var featuresHtml = '';
-  for (var i = 0; i < t.features.length; i++) {
-    var f = t.features[i];
-    featuresHtml += '<div class="feature-card">' +
-      '<div class="feature-emoji">' + f.emoji + '</div>' +
-      '<div class="feature-title">' + f.title + '</div>' +
-      '<div class="feature-desc">' + f.desc + '</div>' +
-      '</div>';
-  }
-  
-  // Statistics HTML
-  var statsHtml = '<div class="stats-grid">';
-  for (var j = 0; j < t.stats.length; j++) {
-    var s = t.stats[j];
-    statsHtml += '<div class="stat-card">' +
-      '<div class="stat-number">' + s.number + '</div>' +
-      '<div class="stat-label">' + s.label + '</div>' +
-      '</div>';
-  }
-  statsHtml += '</div>';
-  
-  // Cross-links HTML
-  var crossHtml = '';
-  for (var k = 0; k < t.crossLinks.length; k++) {
-    var c = t.crossLinks[k];
-    crossHtml += '<a href="' + c.url + '" target="_blank" rel="noopener" class="cross-card">' +
-      '<div class="cross-emoji">' + c.emoji + '</div>' +
-      '<div class="cross-text">' +
-      '<div class="cross-title">' + c.title + '</div>' +
-      '<div class="cross-desc">' + c.desc + '</div>' +
-      '</div>' +
-      '</a>';
-  }
-  
-  // Beta form
-  var betaHtml = '<div class="beta-section">' +
-    '<h3>📧 ' + t.betaTitle + '</h3>' +
-    '<p>' + t.betaDesc + '</p>' +
-    '<form id="betaForm" onsubmit="return submitBeta(event)">' +
-    '<div class="form-group">' +
-    '<input type="text" id="name" name="name" placeholder="' + t.namePlaceholder + '" required>' +
-    '<input type="email" id="email" name="email" placeholder="' + t.emailPlaceholder + '" required>' +
-    '<button type="submit" class="btn-primary">' + t.buttonText + '</button>' +
-    '</div>' +
-    '</form>' +
-    '</div>';
-  
-  var fullHtml = 
-    '<div class="hero">' +
-      '<h1>Cogni<span>Route</span></h1>' +
-      '<div class="hero-tagline">' + t.tagline + '</div>' +
-    '</div>' +
-    '<div class="features-section">' +
-      '<div class="section-title">' + t.featuresTitle + '</div>' +
-      '<div class="features-grid">' + featuresHtml + '</div>' +
-    '</div>' +
-    '<div class="stats-section">' +
-      '<div class="section-title" style="font-size:1.2rem;">📊 ' + t.statsTitle + '</div>' +
-      statsHtml +
-    '</div>' +
-    '<div class="crosslinks-section">' +
-      '<div class="section-title">🔗 ' + t.crossTitle + '</div>' +
-      '<div class="cross-grid">' + crossHtml + '</div>' +
-    '</div>' +
-    betaHtml;
-  
-  document.getElementById("dynamicContent").innerHTML = fullHtml;
-  
-  // Highlight active language button
-  var btns = document.querySelectorAll('.lang-btn');
-  for (var i = 0; i < btns.length; i++) {
-    if (btns[i].getAttribute('data-lang') === lang) {
-      btns[i].classList.add('active');
-    } else {
-      btns[i].classList.remove('active');
-    }
-  }
+var t = texts[lang];
+if (!t) return;
+
+// Features HTML
+var featuresHtml = ‘’;
+for (var i = 0; i < t.features.length; i++) {
+var f = t.features[i];
+featuresHtml += ‘<div class="feature-card">’ +
+‘<div class="feature-emoji">’ + f.emoji + ‘</div>’ +
+‘<div class="feature-title">’ + f.title + ‘</div>’ +
+‘<div class="feature-desc">’ + f.desc + ‘</div>’ +
+‘</div>’;
+}
+
+// Statistics HTML
+var statsHtml = ‘<div class="stats-grid">’;
+for (var j = 0; j < t.stats.length; j++) {
+var s = t.stats[j];
+statsHtml += ‘<div class="stat-card">’ +
+‘<div class="stat-number">’ + s.number + ‘</div>’ +
+‘<div class="stat-label">’ + s.label + ‘</div>’ +
+‘</div>’;
+}
+statsHtml += ‘</div>’;
+
+// Cross-links HTML
+var crossHtml = ‘’;
+for (var k = 0; k < t.crossLinks.length; k++) {
+var c = t.crossLinks[k];
+crossHtml += ‘<a href="' + c.url + '" target="_blank" rel="noopener" class="cross-card">’ +
+‘<div class="cross-emoji">’ + c.emoji + ‘</div>’ +
+‘<div class="cross-text">’ +
+‘<div class="cross-title">’ + c.title + ‘</div>’ +
+‘<div class="cross-desc">’ + c.desc + ‘</div>’ +
+‘</div>’ +
+‘</a>’;
+}
+
+// Beta form
+var betaHtml = ‘<div class="beta-section">’ +
+’<h3>📧 ’ + t.betaTitle + ‘</h3>’ +
+‘<p>’ + t.betaDesc + ‘</p>’ +
+‘<form id="betaForm" onsubmit="return submitBeta(event)">’ +
+‘<div class="form-group">’ +
+‘<input type="text" id="name" name="name" placeholder="' + t.namePlaceholder + '" required>’ +
+‘<input type="email" id="email" name="email" placeholder="' + t.emailPlaceholder + '" required>’ +
+‘<button type="submit" class="btn-primary">’ + t.buttonText + ‘</button>’ +
+‘</div>’ +
+‘</form>’ +
+‘</div>’;
+
+var fullHtml =
+‘<div class="hero">’ +
+‘<h1>Cogni<span>Route</span></h1>’ +
+‘<div class="hero-tagline">’ + t.tagline + ‘</div>’ +
+‘</div>’ +
+‘<div class="features-section">’ +
+‘<div class="section-title">’ + t.featuresTitle + ‘</div>’ +
+‘<div class="features-grid">’ + featuresHtml + ‘</div>’ +
+‘</div>’ +
+‘<div class="stats-section">’ +
+’<div class="section-title" style="font-size:1.2rem;">📊 ’ + t.statsTitle + ‘</div>’ +
+statsHtml +
+‘</div>’ +
+‘<div class="crosslinks-section">’ +
+’<div class="section-title">🔗 ’ + t.crossTitle + ‘</div>’ +
+‘<div class="cross-grid">’ + crossHtml + ‘</div>’ +
+‘</div>’ +
+betaHtml;
+
+document.getElementById(“dynamicContent”).innerHTML = fullHtml;
+
+// Highlight active language button
+var btns = document.querySelectorAll(’.lang-btn’);
+for (var i = 0; i < btns.length; i++) {
+if (btns[i].getAttribute(‘data-lang’) === lang) {
+btns[i].classList.add(‘active’);
+} else {
+btns[i].classList.remove(‘active’);
+}
+}
 }
 
 function setLanguage(lang) {
-  currentLang = lang;
-  renderContent(lang);
+currentLang = lang;
+renderContent(lang);
 }
 
 function submitBeta(event) {
-  event.preventDefault();
-  var nameInput = document.getElementById('name');
-  var emailInput = document.getElementById('email');
-  var t = texts[currentLang];
-  if (nameInput && emailInput && nameInput.value.trim() !== '' && emailInput.value.trim() !== '') {
-    alert(t.successMsg);
-    nameInput.value = '';
-    emailInput.value = '';
-  } else {
-    alert(t.errorMsg);
-  }
-  return false;
+event.preventDefault();
+var nameInput = document.getElementById(‘name’);
+var emailInput = document.getElementById(‘email’);
+var t = texts[currentLang];
+if (nameInput && emailInput && nameInput.value.trim() !== ‘’ && emailInput.value.trim() !== ‘’) {
+alert(t.successMsg);
+nameInput.value = ‘’;
+emailInput.value = ‘’;
+} else {
+alert(t.errorMsg);
+}
+return false;
 }
 
 // Initialize
@@ -547,13 +560,14 @@ currentLang = initialLang;
 renderContent(initialLang);
 
 // Attach language button events
-var langBtns = document.querySelectorAll('.lang-btn');
+var langBtns = document.querySelectorAll(’.lang-btn’);
 for (var i = 0; i < langBtns.length; i++) {
-  langBtns[i].addEventListener('click', function(e) {
-    var lang = this.getAttribute('data-lang');
-    setLanguage(lang);
-  });
+langBtns[i].addEventListener(‘click’, function(e) {
+var lang = this.getAttribute(‘data-lang’);
+setLanguage(lang);
+});
 }
 </script>
+
 </body>
 </html>
