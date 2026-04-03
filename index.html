@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>CogniRoute | Bilişsel Navigasyon & Yaşam Desteği</title>
+  <meta name="description" content="CogniRoute: Zihnin Rotası, Güvenin Limanı. Alzheimer, demans ve yaşlı bakımında yapay zeka destekli bilişsel navigasyon.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="CogniRoute | Bilişsel Navigasyon">
+  <meta property="og:description" content="Zihnin Rotası, Güvenin Limanı. Yaşlılar için dijital yaşam desteği.">
+  <meta property="og:image" content="https://cogniroute.de/og-image.jpg">
+  <meta property="og:url" content="https://cogniroute.de">
+  <meta property="og:type" content="website">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CogniRoute | Bilişsel Navigasyon">
+  <meta name="twitter:description" content="Zihnin Rotası, Güvenin Limanı.">
+  <meta name="twitter:image" content="https://cogniroute.de/og-image.jpg">
+  <link rel="icon" href="https://cogniroute.de/favicon.ico">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #0D0B1E;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #F5F0E8;
+      line-height: 1.5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: #0D0B1E;
+      border-radius: 48px;
+      overflow: hidden;
+    }
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 24px 24px 12px 24px;
+      border-bottom: 1px solid rgba(155,111,212,0.25);
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #9B6FD4;
+    }
+    .badge {
+      font-size: 0.75rem;
+      background: rgba(155,111,212,0.15);
+      padding: 6px 12px;
+      border-radius: 60px;
+      color: #9B6FD4;
+      font-weight: 500;
+    }
+    .lang-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(155,111,212,0.4);
+      border-radius: 60px;
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #F5F0E8;
+    }
+    .lang-btn.active {
+      background: #9B6FD4;
+      color: #0D0B1E;
+      border-color: #9B6FD4;
+    }
+    /* Hero */
+    .hero {
+      padding: 40px 24px 24px 24px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+      color: #F5F0E8;
+    }
+    .hero h1 span {
+      color: #9B6FD4;
+    }
+    .hero-tagline {
+      font-family: system-ui;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #F6B45F;
+      margin-bottom: 8px;
+    }
+    /* Feature Grid */
+    .features-section {
+      padding: 20px 24px;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #F6B45F;
+      border-left: 4px solid #9B6FD4;
+      padding-left: 14px;
+    }
+    .features-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .feature-card {
+      background: rgba(155,111,212,0.06);
+      border-radius: 28px;
+      padding: 20px;
+      border: 1px solid rgba(155,111,212,0.2);
+      transition: 0.2s;
+    }
+    .feature-emoji {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #9B6FD4;
+      margin-bottom: 8px;
+    }
+    .feature-desc {
+      font-size: 0.9rem;
+      color: #E0DCE8;
+      line-height: 1.5;
+    }
+    /* Statistics */
+    .stats-section {
+      background: rgba(155,111,212,0.08);
+      margin: 20px 24px;
+      padding: 24px 20px;
+      border-radius: 32px;
+      text-align: center;
+    }
+    .stats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+    .stat-card {
+      background: rgba(0,0,0,0.3);
+      border-radius: 24px;
+      padding: 16px 12px;
+      text-align: center;
+      flex: 1;
+      min-width: 110px;
+      border: 1px solid rgba(155,111,212,0.3);
+    }
+    .stat-number {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #9B6FD4;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: #C0B8D8;
+      margin-top: 6px;
+    }
+    /* Cross-links */
+    .crosslinks-section {
+      padding: 20px 24px;
+    }
+    .cross-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cross-card {
+      background: rgba(246,180,95,0.08);
+      border-radius: 24px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: 0.2s;
+      border: 1px solid rgba(246,180,95,0.2);
+    }
+    .cross-card:hover {
+      background: rgba(246,180,95,0.15);
+      transform: translateX(6px);
+    }
+    .cross-emoji {
+      font-size: 2rem;
+    }
+    .cross-text {
+      flex: 1;
+    }
+    .cross-title {
+      font-weight: 700;
+      color: #F6B45F;
+    }
+    .cross-desc {
+      font-size: 0.8rem;
+      color: #E0DCE8;
+    }
+    /* Beta Form */
+    .beta-section {
+      background: rgba(155,111,212,0.12);
+      margin: 20px 24px 32px 24px;
+      padding: 28px 24px;
+      border-radius: 32px;
+      text-align: center;
+    }
+    .beta-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: #F5F0E8;
+    }
+    .beta-section p {
+      font-size: 0.9rem;
+      color: #C0B8D8;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .form-group input {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(155,111,212,0.6);
+      border-radius: 60px;
+      padding: 14px 20px;
+      font-size: 1rem;
+      color: #F5F0E8;
+      outline: none;
+    }
+    .form-group input:focus {
+      border-color: #9B6FD4;
+      background: rgba(255,255,255,0.15);
+    }
+    .form-group input::placeholder {
+      color: #9A92B0;
+    }
+    .btn-primary {
+      background: #9B6FD4;
+      border: none;
+      border-radius: 60px;
+      padding: 14px 20px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0D0B1E;
+      cursor: pointer;
+      transition: 0.2s;
+      width: 100%;
+    }
+    .btn-primary:hover {
+      background: #b38be0;
+      transform: scale(0.98);
+    }
+    /* Footer */
+    .footer {
+      padding: 28px 24px 32px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(155,111,212,0.2);
+      font-size: 0.7rem;
+      color: #9A92B0;
+    }
+    .footer a {
+      color: #9B6FD4;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+    .footer a:hover {
+      color: #F6B45F;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 12px 0 8px;
+    }
+    @media (min-width: 560px) {
+      .hero h1 { font-size: 2.8rem; }
+      .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .stats-grid { flex-wrap: nowrap; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="logo">Cogni<span>Route</span></div>
+    <div class="badge">PACDI | Bilişsel Navigasyon</div>
+    <div class="lang-buttons">
+      <button class="lang-btn" data-lang="tr">🇹🇷 TÜRKÇE</button>
+      <button class="lang-btn" data-lang="de">🇩🇪 DEUTSCH</button>
+      <button class="lang-btn" data-lang="en">🇬🇧 ENGLISH</button>
+    </div>
+  </div>
+  <div id="dynamicContent"></div>
+  <div class="footer">
+    <div>© 2026 PACDI — cogniroute.de</div>
+    <div class="footer-links">
+      <a href="https://navigopro.de" target="_blank">NavigoPro</a> |
+      <a href="https://kiezflow.de" target="_blank">KiezFlow</a> |
+      <a href="https://easygov.io" target="_blank">EasyGov</a> |
+      <a href="https://gluconavigator.io" target="_blank">GlucoNavigator</a> |
+      <a href="https://schulroute.de" target="_blank">SchulRoute</a> |
+      <a href="https://wohnroute.de" target="_blank">WohnRoute</a> |
+      <a href="https://silvercompass.world" target="_blank">SilverCompass</a>
+    </div>
+    <div>Datenschutzfreundlich · Keine Speicherung</div>
+  </div>
+</div>
+<script>
+// ES5 translations
+var texts = {
+  tr: {
+    tagline: "Zihnin Rotası, Güvenin Limanı.",
+    featuresTitle: "Özellikler",
+    features: [
+      { emoji: "🧭", title: "Bilişsel Navigasyon", desc: "Günlük rutinlerin dijital rehberi. Kaybolma korkusunu güvende olma konforuna dönüştürür." },
+      { emoji: "🏠", title: "Acil Durum Rotası", desc: "Tek tıkla en güvenli eve dönüş yolu." },
+      { emoji: "📸", title: "Anı Çapası", desc: "Fotoğraf ve ses notlarıyla geçmişle bugün arasında köprü." },
+      { emoji: "📻", title: "Nostaljik Radyo", desc: "Kişiye özel müzik ve anı tetikleyicileri. Müzik hafızayı en son terk eden şeydir." },
+      { emoji: "🌙", title: "Gece Yarısı Kalkanı", desc: "Anormal saatte cihazı eline aldığında sistem fark eder. Sevecen bir ses karşılar: 'Merhaba, uyuyamadın mı? Ben buradayım.'" },
+      { emoji: "🤝", title: "Nesiller Arası Köprü", desc: "KiezFlow bağlantısıyla deneyimini paylaş, destek ver, destek al. Kazandıkların için sistem bonus ödüller ve 'İyi İnsan Sertifikası' sunar." },
+      { emoji: "📜", title: "Dijital Vasiyet", desc: "Anıların, sesler, fotoğraflar ve mesajlar güvenle aileye ulaşsın. 'Seni seviyorum' diyemediklerini teknoloji iletsin." }
+    ],
+    statsTitle: "Biliyor muydun?",
+    stats: [
+      { number: "1,8 Milyon", label: "Almanya'da Alzheimer hastası" },
+      { number: "Son terk edilen", label: "Müzik hafızada en uzun kalan" },
+      { number: "%40 Daha İyi", label: "Erken teşhisle yaşam kalitesi artışı" }
+    ],
+    crossTitle: "PACDI Ekosistemi",
+    crossLinks: [
+      { emoji: "💊", title: "GlucoNavigatör", desc: "Kan şekeri dengesi zihin sağlığıyla başlar.", url: "https://gluconavigator.io" },
+      { emoji: "🏙️", title: "KiezFlow", desc: "Mahallenin gücüyle nesiller arası dayanışma.", url: "https://kiezflow.de" },
+      { emoji: "🏛️", title: "EasyGov", desc: "Bakım yardımları (Pflegegrad) için rehberiniz.", url: "https://easygov.io" }
+    ],
+    betaTitle: "Beta listesine katılın",
+    betaDesc: "CogniRoute'u ilk deneyenlerden olun.",
+    namePlaceholder: "Adınız",
+    emailPlaceholder: "E-posta adresiniz",
+    buttonText: "Beta Listesine Katıl",
+    successMsg: "Teşekkürler! Size ulaşacağız.",
+    errorMsg: "Lütfen adınızı ve e-posta adresinizi giriniz."
+  },
+  de: {
+    tagline: "Die Route des Geistes, der Hafen des Vertrauens.",
+    featuresTitle: "Eigenschaften",
+    features: [
+      { emoji: "🧭", title: "Kognitive Navigation", desc: "Digitaler Begleiter für tägliche Routinen. Verwandelt Verlustangst in Geborgenheit." },
+      { emoji: "🏠", title: "Notfall-Route", desc: "Mit einem Klick sicher nach Hause." },
+      { emoji: "📸", title: "Erinnerungsanker", desc: "Brücke zwischen Vergangenheit und Gegenwart mit Fotos und Sprachnotizen." },
+      { emoji: "📻", title: "Nostalgieradio", desc: "Personalisierte Musik als Gedächtnisanker. Musik verlässt das Gedächtnis als Letztes." },
+      { emoji: "🌙", title: "Nachtschild", desc: "Das System erkennt ungewöhnliche Nutzungszeiten. Eine fürsorgliche Stimme begrüßt dich: 'Hallo, kannst du nicht schlafen? Ich bin da.'" },
+      { emoji: "🤝", title: "Generationenbrücke", desc: "Teile deine Erfahrung, gib und empfange Unterstützung über KiezFlow. Erhalte Bonuspunkte und ein 'Guter Mensch Zertifikat'." },
+      { emoji: "📜", title: "Digitales Testament", desc: "Erinnerungen, Stimmen und Botschaften sicher an die Familie weitergeben. Was du nicht sagen konntest, übermittelt die Technologie." }
+    ],
+    statsTitle: "Wussten Sie schon?",
+    stats: [
+      { number: "1,8 Millionen", label: "Alzheimer-Patienten in Deutschland" },
+      { number: "Zuletzt vergessen", label: "Musik bleibt am längsten im Gedächtnis" },
+      { number: "40% besser", label: "Lebensqualität bei Früherkennung" }
+    ],
+    crossTitle: "PACDI Ökosystem",
+    crossLinks: [
+      { emoji: "💊", title: "GlucoNavigator", desc: "Blutzuckerbalance beginnt mit mentaler Gesundheit.", url: "https://gluconavigator.io" },
+      { emoji: "🏙️", title: "KiezFlow", desc: "Generationensolidarität durch die Kraft des Kiezes.", url: "https://kiezflow.de" },
+      { emoji: "🏛️", title: "EasyGov", desc: "Ihr Wegweiser für Pflegeleistungen (Pflegegrad).", url: "https://easygov.io" }
+    ],
+    betaTitle: "Beta-Liste beitreten",
+    betaDesc: "Seien Sie unter den Ersten, die CogniRoute erleben.",
+    namePlaceholder: "Ihr Name",
+    emailPlaceholder: "E-Mail-Adresse",
+    buttonText: "Beta-Liste beitreten",
+    successMsg: "Vielen Dank! Wir melden uns.",
+    errorMsg: "Bitte geben Sie Ihren Namen und Ihre E-Mail-Adresse ein."
+  },
+  en: {
+    tagline: "The Route of the Mind, the Harbor of Trust.",
+    featuresTitle: "Features",
+    features: [
+      { emoji: "🧭", title: "Cognitive Navigation", desc: "Digital guide for daily routines. Turns fear of getting lost into the comfort of safety." },
+      { emoji: "🏠", title: "Emergency Route", desc: "One tap to find your way home safely." },
+      { emoji: "📸", title: "Memory Anchor", desc: "Bridge between past and present with photos and voice notes." },
+      { emoji: "📻", title: "Nostalgia Radio", desc: "Personalized music as memory triggers. Music is the last thing to leave memory." },
+      { emoji: "🌙", title: "Night Shield", desc: "System detects unusual usage hours. A caring voice greets you: 'Hello, can't sleep? I'm here.'" },
+      { emoji: "🤝", title: "Generational Bridge", desc: "Share your experience, give and receive support via KiezFlow. Earn bonus rewards and a 'Good Human Certificate'." },
+      { emoji: "📜", title: "Digital Legacy", desc: "Memories, voices and messages safely delivered to your family. Let technology say what you couldn't." }
+    ],
+    statsTitle: "Did you know?",
+    stats: [
+      { number: "1.8 Million", label: "Alzheimer patients in Germany" },
+      { number: "Last to go", label: "Music stays in memory the longest" },
+      { number: "40% better", label: "Quality of life with early diagnosis" }
+    ],
+    crossTitle: "PACDI Ecosystem",
+    crossLinks: [
+      { emoji: "💊", title: "GlucoNavigator", desc: "Blood sugar balance starts with mental health.", url: "https://gluconavigator.io" },
+      { emoji: "🏙️", title: "KiezFlow", desc: "Generational solidarity through neighborhood power.", url: "https://kiezflow.de" },
+      { emoji: "🏛️", title: "EasyGov", desc: "Your guide for care benefits (Pflegegrad).", url: "https://easygov.io" }
+    ],
+    betaTitle: "Join Beta List",
+    betaDesc: "Be among the first to experience CogniRoute.",
+    namePlaceholder: "Your name",
+    emailPlaceholder: "Email address",
+    buttonText: "Join Beta List",
+    successMsg: "Thank you! We'll be in touch.",
+    errorMsg: "Please enter your name and email address."
+  }
+};
+
+var currentLang = "tr";
+
+function detectLanguage() {
+  var userLang = navigator.language || navigator.userLanguage;
+  if (userLang.indexOf("tr") === 0) return "tr";
+  if (userLang.indexOf("de") === 0) return "de";
+  return "en";
+}
+
+function renderContent(lang) {
+  var t = texts[lang];
+  if (!t) return;
+  
+  // Features HTML
+  var featuresHtml = '';
+  for (var i = 0; i < t.features.length; i++) {
+    var f = t.features[i];
+    featuresHtml += '<div class="feature-card">' +
+      '<div class="feature-emoji">' + f.emoji + '</div>' +
+      '<div class="feature-title">' + f.title + '</div>' +
+      '<div class="feature-desc">' + f.desc + '</div>' +
+      '</div>';
+  }
+  
+  // Statistics HTML
+  var statsHtml = '<div class="stats-grid">';
+  for (var j = 0; j < t.stats.length; j++) {
+    var s = t.stats[j];
+    statsHtml += '<div class="stat-card">' +
+      '<div class="stat-number">' + s.number + '</div>' +
+      '<div class="stat-label">' + s.label + '</div>' +
+      '</div>';
+  }
+  statsHtml += '</div>';
+  
+  // Cross-links HTML
+  var crossHtml = '';
+  for (var k = 0; k < t.crossLinks.length; k++) {
+    var c = t.crossLinks[k];
+    crossHtml += '<a href="' + c.url + '" target="_blank" rel="noopener" class="cross-card">' +
+      '<div class="cross-emoji">' + c.emoji + '</div>' +
+      '<div class="cross-text">' +
+      '<div class="cross-title">' + c.title + '</div>' +
+      '<div class="cross-desc">' + c.desc + '</div>' +
+      '</div>' +
+      '</a>';
+  }
+  
+  // Beta form
+  var betaHtml = '<div class="beta-section">' +
+    '<h3>📧 ' + t.betaTitle + '</h3>' +
+    '<p>' + t.betaDesc + '</p>' +
+    '<form id="betaForm" onsubmit="return submitBeta(event)">' +
+    '<div class="form-group">' +
+    '<input type="text" id="name" name="name" placeholder="' + t.namePlaceholder + '" required>' +
+    '<input type="email" id="email" name="email" placeholder="' + t.emailPlaceholder + '" required>' +
+    '<button type="submit" class="btn-primary">' + t.buttonText + '</button>' +
+    '</div>' +
+    '</form>' +
+    '</div>';
+  
+  var fullHtml = 
+    '<div class="hero">' +
+      '<h1>Cogni<span>Route</span></h1>' +
+      '<div class="hero-tagline">' + t.tagline + '</div>' +
+    '</div>' +
+    '<div class="features-section">' +
+      '<div class="section-title">' + t.featuresTitle + '</div>' +
+      '<div class="features-grid">' + featuresHtml + '</div>' +
+    '</div>' +
+    '<div class="stats-section">' +
+      '<div class="section-title" style="font-size:1.2rem;">📊 ' + t.statsTitle + '</div>' +
+      statsHtml +
+    '</div>' +
+    '<div class="crosslinks-section">' +
+      '<div class="section-title">🔗 ' + t.crossTitle + '</div>' +
+      '<div class="cross-grid">' + crossHtml + '</div>' +
+    '</div>' +
+    betaHtml;
+  
+  document.getElementById("dynamicContent").innerHTML = fullHtml;
+  
+  // Highlight active language button
+  var btns = document.querySelectorAll('.lang-btn');
+  for (var i = 0; i < btns.length; i++) {
+    if (btns[i].getAttribute('data-lang') === lang) {
+      btns[i].classList.add('active');
+    } else {
+      btns[i].classList.remove('active');
+    }
+  }
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  renderContent(lang);
+}
+
+function submitBeta(event) {
+  event.preventDefault();
+  var nameInput = document.getElementById('name');
+  var emailInput = document.getElementById('email');
+  var t = texts[currentLang];
+  if (nameInput && emailInput && nameInput.value.trim() !== '' && emailInput.value.trim() !== '') {
+    alert(t.successMsg);
+    nameInput.value = '';
+    emailInput.value = '';
+  } else {
+    alert(t.errorMsg);
+  }
+  return false;
+}
+
+// Initialize
+var initialLang = detectLanguage();
+currentLang = initialLang;
+renderContent(initialLang);
+
+// Attach language button events
+var langBtns = document.querySelectorAll('.lang-btn');
+for (var i = 0; i < langBtns.length; i++) {
+  langBtns[i].addEventListener('click', function(e) {
+    var lang = this.getAttribute('data-lang');
+    setLanguage(lang);
+  });
+}
+</script>
+</body>
+</html>
