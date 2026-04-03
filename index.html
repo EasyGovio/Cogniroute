@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -441,117 +440,117 @@ var texts = {
   }
 };
 
-var currentLang = “tr”;
+var currentLang = "tr";
 
 function detectLanguage() {
-var userLang = navigator.language || navigator.userLanguage;
-if (userLang.indexOf(“tr”) === 0) return “tr”;
-if (userLang.indexOf(“de”) === 0) return “de”;
-return “en”;
+  var userLang = navigator.language || navigator.userLanguage;
+  if (userLang.indexOf("tr") === 0) return "tr";
+  if (userLang.indexOf("de") === 0) return "de";
+  return "en";
 }
 
 function renderContent(lang) {
-var t = texts[lang];
-if (!t) return;
-
-// Features HTML
-var featuresHtml = ‘’;
-for (var i = 0; i < t.features.length; i++) {
-var f = t.features[i];
-featuresHtml += ‘<div class="feature-card">’ +
-‘<div class="feature-emoji">’ + f.emoji + ‘</div>’ +
-‘<div class="feature-title">’ + f.title + ‘</div>’ +
-‘<div class="feature-desc">’ + f.desc + ‘</div>’ +
-‘</div>’;
-}
-
-// Statistics HTML
-var statsHtml = ‘<div class="stats-grid">’;
-for (var j = 0; j < t.stats.length; j++) {
-var s = t.stats[j];
-statsHtml += ‘<div class="stat-card">’ +
-‘<div class="stat-number">’ + s.number + ‘</div>’ +
-‘<div class="stat-label">’ + s.label + ‘</div>’ +
-‘</div>’;
-}
-statsHtml += ‘</div>’;
-
-// Cross-links HTML
-var crossHtml = ‘’;
-for (var k = 0; k < t.crossLinks.length; k++) {
-var c = t.crossLinks[k];
-crossHtml += ‘<a href="' + c.url + '" target="_blank" rel="noopener" class="cross-card">’ +
-‘<div class="cross-emoji">’ + c.emoji + ‘</div>’ +
-‘<div class="cross-text">’ +
-‘<div class="cross-title">’ + c.title + ‘</div>’ +
-‘<div class="cross-desc">’ + c.desc + ‘</div>’ +
-‘</div>’ +
-‘</a>’;
-}
-
-// Beta form
-var betaHtml = ‘<div class="beta-section">’ +
-’<h3>📧 ’ + t.betaTitle + ‘</h3>’ +
-‘<p>’ + t.betaDesc + ‘</p>’ +
-‘<form id="betaForm" onsubmit="return submitBeta(event)">’ +
-‘<div class="form-group">’ +
-‘<input type="text" id="name" name="name" placeholder="' + t.namePlaceholder + '" required>’ +
-‘<input type="email" id="email" name="email" placeholder="' + t.emailPlaceholder + '" required>’ +
-‘<button type="submit" class="btn-primary">’ + t.buttonText + ‘</button>’ +
-‘</div>’ +
-‘</form>’ +
-‘</div>’;
-
-var fullHtml =
-‘<div class="hero">’ +
-‘<h1>Cogni<span>Route</span></h1>’ +
-‘<div class="hero-tagline">’ + t.tagline + ‘</div>’ +
-‘</div>’ +
-‘<div class="features-section">’ +
-‘<div class="section-title">’ + t.featuresTitle + ‘</div>’ +
-‘<div class="features-grid">’ + featuresHtml + ‘</div>’ +
-‘</div>’ +
-‘<div class="stats-section">’ +
-’<div class="section-title" style="font-size:1.2rem;">📊 ’ + t.statsTitle + ‘</div>’ +
-statsHtml +
-‘</div>’ +
-‘<div class="crosslinks-section">’ +
-’<div class="section-title">🔗 ’ + t.crossTitle + ‘</div>’ +
-‘<div class="cross-grid">’ + crossHtml + ‘</div>’ +
-‘</div>’ +
-betaHtml;
-
-document.getElementById(“dynamicContent”).innerHTML = fullHtml;
-
-// Highlight active language button
-var btns = document.querySelectorAll(’.lang-btn’);
-for (var i = 0; i < btns.length; i++) {
-if (btns[i].getAttribute(‘data-lang’) === lang) {
-btns[i].classList.add(‘active’);
-} else {
-btns[i].classList.remove(‘active’);
-}
-}
+  var t = texts[lang];
+  if (!t) return;
+  
+  // Features HTML
+  var featuresHtml = '';
+  for (var i = 0; i < t.features.length; i++) {
+    var f = t.features[i];
+    featuresHtml += '<div class="feature-card">' +
+      '<div class="feature-emoji">' + f.emoji + '</div>' +
+      '<div class="feature-title">' + f.title + '</div>' +
+      '<div class="feature-desc">' + f.desc + '</div>' +
+      '</div>';
+  }
+  
+  // Statistics HTML
+  var statsHtml = '<div class="stats-grid">';
+  for (var j = 0; j < t.stats.length; j++) {
+    var s = t.stats[j];
+    statsHtml += '<div class="stat-card">' +
+      '<div class="stat-number">' + s.number + '</div>' +
+      '<div class="stat-label">' + s.label + '</div>' +
+      '</div>';
+  }
+  statsHtml += '</div>';
+  
+  // Cross-links HTML
+  var crossHtml = '';
+  for (var k = 0; k < t.crossLinks.length; k++) {
+    var c = t.crossLinks[k];
+    crossHtml += '<a href="' + c.url + '" target="_blank" rel="noopener" class="cross-card">' +
+      '<div class="cross-emoji">' + c.emoji + '</div>' +
+      '<div class="cross-text">' +
+      '<div class="cross-title">' + c.title + '</div>' +
+      '<div class="cross-desc">' + c.desc + '</div>' +
+      '</div>' +
+      '</a>';
+  }
+  
+  // Beta form
+  var betaHtml = '<div class="beta-section">' +
+    '<h3>📧 ' + t.betaTitle + '</h3>' +
+    '<p>' + t.betaDesc + '</p>' +
+    '<form id="betaForm" onsubmit="return submitBeta(event)">' +
+    '<div class="form-group">' +
+    '<input type="text" id="name" name="name" placeholder="' + t.namePlaceholder + '" required>' +
+    '<input type="email" id="email" name="email" placeholder="' + t.emailPlaceholder + '" required>' +
+    '<button type="submit" class="btn-primary">' + t.buttonText + '</button>' +
+    '</div>' +
+    '</form>' +
+    '</div>';
+  
+  var fullHtml = 
+    '<div class="hero">' +
+      '<h1>Cogni<span>Route</span></h1>' +
+      '<div class="hero-tagline">' + t.tagline + '</div>' +
+    '</div>' +
+    '<div class="features-section">' +
+      '<div class="section-title">' + t.featuresTitle + '</div>' +
+      '<div class="features-grid">' + featuresHtml + '</div>' +
+    '</div>' +
+    '<div class="stats-section">' +
+      '<div class="section-title" style="font-size:1.2rem;">📊 ' + t.statsTitle + '</div>' +
+      statsHtml +
+    '</div>' +
+    '<div class="crosslinks-section">' +
+      '<div class="section-title">🔗 ' + t.crossTitle + '</div>' +
+      '<div class="cross-grid">' + crossHtml + '</div>' +
+    '</div>' +
+    betaHtml;
+  
+  document.getElementById("dynamicContent").innerHTML = fullHtml;
+  
+  // Highlight active language button
+  var btns = document.querySelectorAll('.lang-btn');
+  for (var i = 0; i < btns.length; i++) {
+    if (btns[i].getAttribute('data-lang') === lang) {
+      btns[i].classList.add('active');
+    } else {
+      btns[i].classList.remove('active');
+    }
+  }
 }
 
 function setLanguage(lang) {
-currentLang = lang;
-renderContent(lang);
+  currentLang = lang;
+  renderContent(lang);
 }
 
 function submitBeta(event) {
-event.preventDefault();
-var nameInput = document.getElementById(‘name’);
-var emailInput = document.getElementById(‘email’);
-var t = texts[currentLang];
-if (nameInput && emailInput && nameInput.value.trim() !== ‘’ && emailInput.value.trim() !== ‘’) {
-alert(t.successMsg);
-nameInput.value = ‘’;
-emailInput.value = ‘’;
-} else {
-alert(t.errorMsg);
-}
-return false;
+  event.preventDefault();
+  var nameInput = document.getElementById('name');
+  var emailInput = document.getElementById('email');
+  var t = texts[currentLang];
+  if (nameInput && emailInput && nameInput.value.trim() !== '' && emailInput.value.trim() !== '') {
+    alert(t.successMsg);
+    nameInput.value = '';
+    emailInput.value = '';
+  } else {
+    alert(t.errorMsg);
+  }
+  return false;
 }
 
 // Initialize
@@ -560,14 +559,13 @@ currentLang = initialLang;
 renderContent(initialLang);
 
 // Attach language button events
-var langBtns = document.querySelectorAll(’.lang-btn’);
+var langBtns = document.querySelectorAll('.lang-btn');
 for (var i = 0; i < langBtns.length; i++) {
-langBtns[i].addEventListener(‘click’, function(e) {
-var lang = this.getAttribute(‘data-lang’);
-setLanguage(lang);
-});
+  langBtns[i].addEventListener('click', function(e) {
+    var lang = this.getAttribute('data-lang');
+    setLanguage(lang);
+  });
 }
 </script>
-
 </body>
 </html>
